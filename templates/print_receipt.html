@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+    <div id="Receipt" class="jumbotron text-center">
+        <h3 class="display-4 text-center">Resturant Ordering System </h1>
+        <p class="lead ">Payment Receipt</p>
+        <hr class="my-4">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Food Ordered</th>
+                <th scope="col">Food Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Order Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{printReceipt.id }}</th>
+                <th scope="col">{{printReceipt.customer_name}}</th>
+                <td>{{printReceipt.order_food }}</td>
+                <td>{{printReceipt.qty }}</td>
+                <td>{{printReceipt.price }}</td>
+                <td>{{printReceipt.status }}</td>
+                <td>{{printReceipt.created_at }}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <button id="print" class="btn btn-outline-success" onclick="printContent('Receipt');">
+            Print Receipt
+        </button>
+    </div>
+</div>
+{% endblock %}

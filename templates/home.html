@@ -4,10 +4,40 @@
 
 <div class="container">
   <div class="jumbotron text-center">
-      <h1 class="display-4 text-center">Py Flask Starter 🚀 </h1>
-      <p class="lead ">Hello <span class="text-success">{{session.username}}</span> Are You Ready To Kick Start Any Python Flask Project?</p>
+      <h1 class="display-4 text-center">Resturant Ordering System </h1>
+      <p class="lead ">Hello <span class="text-success">{{session.username}}</span> Welcome To Resturant Ordering System</p>
       <hr class="my-4">
-      <a class="btn btn-primary btn-lg" href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" role="button">Learn more</a>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Food Ordered</th>
+            <th scope="col">Food Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Manage Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for Responses in Responses %}
+          <tr>
+            <th scope="row">{{Responses.id }}</th>
+            <th scope="col">{{Responses.customer_name}}</th>
+            <td>{{Responses.order_food }}</td>
+            <td>{{Responses.qty }}</td>
+            <td>{{Responses.price }}</td>
+            <td>{{Responses.status }}</td>
+            <td>{{Responses.created_at }}</td>
+            <td>
+              <!--<a class="badge badge-success" href="pay_order/{{Responses.id}}"> Pay Order</a>-->
+              <a class="badge badge-danger" href="print_receipt/{{Responses.id}}"> Print Receipt</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
   </div>
 </div>
 {% endblock %}
